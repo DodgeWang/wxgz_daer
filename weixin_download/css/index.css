@@ -1,0 +1,250 @@
+#ts {
+	width: 100%;
+	position: absolute;
+	z-index: 1000;
+	top: 0px;
+	left: 0px;
+	display: none;
+}
+
+#close {
+	position: absolute;
+	width: 160px;
+	left: 50%;
+	margin-left: -80px;
+	bottom: 15%;
+	padding: 10px;
+	color: #fff;
+	border-color: #fff;
+}
+
+.item-logo {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.animate {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	color: #fff;
+	display: -moz-box;
+}
+
+.animate .btn_img {
+	margin-top: 0px;
+}
+
+.animate li {
+	width: 100%;
+	height: auto;
+	list-style: none;
+	text-align: right;
+}
+
+.animate li:nth-child(3) {
+	text-align: left;
+	float: right;
+}
+
+.animated {
+	-webkit-animation-duration: 1s;
+	-webkit-animation-play-state: paused;
+	-webkit-animation-fill-mode: both;
+}
+
+.guide-show .bounceInDown {
+	-webkit-animation-name: bounceInDown;
+	-webkit-animation-play-state: running;
+	-webkit-animation-delay: 1s;
+	display: block;
+}
+
+.guide-show .bounceInLeft {
+	-webkit-animation-name: bounceInLeft;
+	display: block;
+	-webkit-animation-play-state: running;
+	margin-top: -10px;
+}
+
+.guide-show .bounceInRight {
+	-webkit-animation-name: bounceInRight;
+	display: block;
+	-webkit-animation-play-state: running;
+	-webkit-animation-delay: 0.5s;
+	margin-top: -30px;
+}
+
+.right_btn {
+	position: absolute;
+	right: 0px;
+	bottom: 40%;
+	animation-name: right_btn;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes bounceInDown {
+	0%,
+	60%,
+	75%,
+	90%,
+	100% {
+		-webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+		animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+	}
+	0% {
+		opacity: 0;
+		-webkit-transform: translate3d(0, -3000px, 0);
+		transform: translate3d(0, -3000px, 0);
+	}
+	60% {
+		opacity: 1;
+		-webkit-transform: translate3d(0, 25px, 0);
+		transform: translate3d(0, 25px, 0);
+	}
+	75% {
+		-webkit-transform: translate3d(0, -5px, 0);
+		transform: translate3d(0, -5px, 0);
+	}
+	90% {
+		-webkit-transform: translate3d(0, 3px, 0);
+		transform: translate3d(0, 3px, 0);
+	}
+	100% {
+		-webkit-transform: none;
+		transform: none;
+	}
+}
+
+@-webkit-keyframes bounceInLeft {
+	0%,
+	60%,
+	75%,
+	90%,
+	100% {
+		-webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+		animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+	}
+	0% {
+		opacity: 0;
+		-webkit-transform: translate3d(-3000px, 0, 0);
+		transform: translate3d(-3000px, 0, 0);
+	}
+	60% {
+		opacity: 1;
+		-webkit-transform: translate3d(25px, 0, 0);
+		transform: translate3d(25px, 0, 0);
+	}
+	75% {
+		-webkit-transform: translate3d(-10px, 0, 0);
+		transform: translate3d(-10px, 0, 0);
+	}
+	90% {
+		-webkit-transform: translate3d(5px, 0, 0);
+		transform: translate3d(5px, 0, 0);
+	}
+	100% {
+		-webkit-transform: none;
+		transform: none;
+	}
+}
+
+@-webkit-keyframes bounceInRight {
+	0%,
+	60%,
+	75%,
+	90%,
+	100% {
+		-webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+		animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+	}
+	0% {
+		opacity: 0;
+		-webkit-transform: translate3d(3000px, 0, 0);
+		transform: translate3d(3000px, 0, 0);
+	}
+	60% {
+		opacity: 1;
+		-webkit-transform: translate3d(-25px, 0, 0);
+		transform: translate3d(-25px, 0, 0);
+	}
+	75% {
+		-webkit-transform: translate3d(10px, 0, 0);
+		transform: translate3d(10px, 0, 0);
+	}
+	90% {
+		-webkit-transform: translate3d(-5px, 0, 0);
+		transform: translate3d(-5px, 0, 0);
+	}
+	100% {
+		-webkit-transform: none;
+		transform: none;
+	}
+}
+
+@-webkit-keyframes right_btn {
+	0% {
+		right: 0px;
+		-moz-opacity: 0;
+		opacity: 0;
+	}
+	50% {
+		right: 10px;
+		-moz-opacity: 1;
+		opacity: 1;
+	}
+	100% {
+		right: 0px;
+		-moz-opacity: 0;
+		opacity: 0;
+	}
+}
+
+.pai1 {
+	width: 35%!important;
+	position: absolute;
+	bottom: -3%;
+	left: -3%;
+	animation-name: pai1;
+	animation-duration: 0.5s;
+	animation-iteration-count: 1;
+}
+
+.pai2 {
+	width: 30%!important;
+	position: absolute;
+	top: 35%;
+	right: -3%;
+	animation-name: pai2;
+	animation-duration: 0.5s;
+	animation-iteration-count: 1;
+}
+
+@-webkit-keyframes pai1 {
+	from {
+		left: 17%;
+		bottom: 17%;
+		opacity: 0;
+	}
+	to {
+		left: -3%;
+		bottom: -3%;
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes pai2 {
+	from {
+		right: 17%;
+		top: 15%;
+		opacity: 0;
+	}
+	to {
+		right: -3%;
+		top: 35%;
+		opacity: 1;
+	}
+}
