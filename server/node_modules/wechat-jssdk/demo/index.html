@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1.0, user-scalable=no">
+  <title>Wechat JSSDK DEMO</title>
+  <!--<script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>-->
+  <script src="//cdn.bootcss.com/zepto/1.1.6/zepto.min.js"></script>
+  <script src="/client.js"></script>
+</head>
+<body>
+  <p>点击右上角分享!</p>
+  <p><a href="{{ oauthUrl }}">OAuth</a></p>
+  <p><a href="/oauth-cache">OAuth without new code</a></p>
+  <script type="text/javascript">
+    var config = {
+      "appId": "wxfc9c5237ebf480aa",
+      success: function() {
+        console.log('success');
+        var w = this;
+        var img = 'http://pic1.ooopic.com/uploadfilepic/shiliang/2009-10-05/OOOPIC_00cyl_20091005e2c6eb1c889e342e.jpg';
+        //sugar method
+        w.shareOnMoment({
+          title: 'test title',
+          type: 'link',
+          success: function() {
+            console.log('share on moment success');
+          },
+          cancel: function() {
+            console.log('share on moment canceled');
+          },
+          imgUrl: img
+        });
+
+        //or call directly
+        w.callWechatApi('onMenuShareAppMessage', {
+          title: 'test title',
+          type: 'link',
+          desc: 'share description',
+          success: function() {
+            console.log('share on chat success');
+          },
+          cancel: function() {
+            console.log('share on chat canceled');
+          },
+          imgUrl: img
+        });
+      },
+      error: function(err) {
+        console.error(err)
+      },
+      debug: true
+    };
+    $.ajax({
+      type: 'GET',
+      url: '/get-signature',
+      dataType: 'json',
+      data: {
+        url: location.href
+      },
+      success: function(data) {
+        config.nonceStr = data.nonceStr;
+        config.signature = data.signature;
+        config.timestamp = data.timestamp;
+        config.jsApiList = ['hideMenuItems', 'onMenuShareTimeline'];
+        var w = new window.WechatJSSDK(config);
+      }
+    });
+  </script>
+</body>
+</html>
