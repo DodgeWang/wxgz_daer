@@ -1,129 +1,129 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<meta charset="utf-8">
-		<title>下载</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-		<link rel="stylesheet" href="css/mui.min.css">
-		<link rel="stylesheet" href="css/index.css">
-	</head>
+<head>
+    <meta charset="utf-8">
+    <title>家乡大贰</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="css/mui.min.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
 
-	<body>
-		<div id="slider" class="mui-slider mui-fullscreen" style="background-color: black;">
-			<div class="mui-slider-group">
-				<!-- 第一张 -->
-				<div class="mui-slider-item">
-					<div class="item-logo" style="background: url(img/bg1.jpg);background-size:100% 100%;">
-						<img id="ceshi" src="img/erweima.png" style="width: 25%; position: absolute; right: 0px; top: 0px;">
-						<div class="animate guide-show">
-							<img class="animated bounceInDown btn_img" src="img/download_btn.png" id="download" style="width: 50%; margin-left: auto; margin-right: auto;">
-							<li class="animated bounceInLeft"><img src="img/xcy1.png" style="width: 100%;"></li>
-							<li class="animated bounceInRight"><img src="img/xcy2.png" style="width: 100%;"></li>
-						</div>
-						<div class="right_btn"><img src="img/right.png"></div>
-					</div>
-				</div>
-				<!-- 第二张 -->
-				<div class="mui-slider-item">
-					<div class="item-logo" style="background: url(img/bg2.jpg); background-size:100% 100%;">
-						<div id="tips-2" class="animate mui-hidden" style="position: relative; height: 100%;">
-							<img src="img/pai1.png" class="pai1" />
-							<img src="img/pai2.png" class="pai2" />
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="mui-slider-indicator">
-				<div class="mui-indicator mui-active"></div>
-				<div class="mui-indicator"></div>
-			</div>
-			<img src="img/tip.png" id="ts">
-		</div>
-		<script src="js/mui.min.js"></script>
-		<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-		<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<body>
+    <div id="slider" class="mui-slider mui-fullscreen" style="background-color: black;">
+        <div class="mui-slider-group">
+            <!-- 第一张 -->
+            <div class="mui-slider-item">
+                <div class="item-logo" style="background: url(img/bg1.jpg);background-size:100% 100%;">
+                    <img id="ceshi" src="img/erweima.png" style="width: 25%; position: absolute; right: 0px; top: 0px;">
+                    <div class="animate guide-show">
+                        <img class="animated bounceInDown btn_img" src="img/download_btn.png" id="download" style="width: 50%; margin-left: auto; margin-right: auto;">
+                        <li class="animated bounceInLeft"><img src="img/xcy1.png" style="width: 100%;"></li>
+                        <li class="animated bounceInRight"><img src="img/xcy2.png" style="width: 100%;"></li>
+                    </div>
+                    <div class="right_btn"><img src="img/right.png"></div>
+                </div>
+            </div>
+            <!-- 第二张 -->
+            <div class="mui-slider-item">
+                <div class="item-logo" style="background: url(img/bg2.jpg); background-size:100% 100%;">
+                    <div id="tips-2" class="animate mui-hidden" style="position: relative; height: 100%;">
+                        <img src="img/pai1.png" class="pai1" />
+                        <img src="img/pai2.png" class="pai2" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mui-slider-indicator">
+            <div class="mui-indicator mui-active"></div>
+            <div class="mui-indicator"></div>
+        </div>
+        <img src="img/tip.png" id="ts">
+    </div>
+    <script src="js/mui.min.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script>
+    $.ajax({
+        url: 'http://wx.jxchaguan.com/getSignature',
+        type: 'get',
+        async: false, //使用同步的方式,true为异步方式
+        data: {}, //这里使用json对象
+        success: function(data) {
+            wx.config({
+                debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                appId: 'wxefe5a7d37bd36609', // 必填，公众号的唯一标识
+                timestamp: data.timestamp, // 必填，生成签名的时间戳
+                nonceStr: data.nonceStr, // 必填，生成签名的随机串
+                signature: data.signature, // 必填，签名，见附录1
+                jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ','onMenuShareWeibo','onMenuShareQZone'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2		
+            });
+        }
+    });
 
-		<script>
-			$.ajax({
-				url: 'http://192.168.1.69:5000/getSignature',
-				type: 'get',
-				async: false, //使用同步的方式,true为异步方式
-				data: {}, //这里使用json对象
-				success: function(data) {
-					wx.config({
-						debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-						appId: 'wxefe5a7d37bd36609', // 必填，公众号的唯一标识
-						timestamp: data.timestamp, // 必填，生成签名的时间戳
-						nonceStr: data.nonceStr, // 必填，生成签名的随机串
-						signature: data.signature, // 必填，签名，见附录1
-						jsApiList: ['onMenuShareTimeline'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2		
-					});
-				}
-			});
-			console.log('wangdaiqiang')
-//			$.get("http://192.168.1.69:5000/getSignature", function(data) {
-//				wx.config({
-//					debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-//					appId: 'wxefe5a7d37bd36609', // 必填，公众号的唯一标识
-//					timestamp: data.timestamp, // 必填，生成签名的时间戳
-//					nonceStr: data.nonceStr, // 必填，生成签名的随机串
-//					signature: data.signature, // 必填，签名，见附录1
-//					jsApiList: ['onMenuShareTimeline'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2		
-//				});
-//			});
+    wx.ready(function() {
 
-			wx.ready(function() {
-				wx.onMenuShareTimeline({
-					title: '分享测试', // 分享标题
-					link: 'http://www.jxchaguan.com/weixin/index.html', // 分享链接
-					imgUrl: 'http://pic.58pic.com/58pic/14/25/01/74w58PICP5D_1024.jpg', // 分享图标
-					success: function() {
-						// 用户确认分享后执行的回调函数
-					},
-					cancel: function() {
-						// 用户取消分享后执行的回调函数
-					}
-				});
-			})
+    	var shareParam = {
+    		title: '家乡大贰正式上线，家乡人手机上的必备神器！公测期间，房卡免费。', // 分享标题
+            link: 'http://www.jxchaguan.com/weixin/index.html', // 分享链接
+            imgUrl: 'http://www.jxchaguan.com/weixin/img/icon.png', // 分享图标
+            desc: '家乡大贰正式上线，家乡人手机上的必备神器！公测期间，房卡免费。'// 分享描述
+    	}
+        //获取“分享到朋友圈”按钮点击状态及自定义分享内容接口
+        wx.onMenuShareTimeline(shareParam);
 
-			//图片切换时，触发动画
-			document.querySelector('.mui-slider').addEventListener('slide', function(event) {
-				//注意slideNumber是从0开始的；
-				var index = event.detail.slideNumber + 1;
-				if(index == 2 || index == 3) {
-					var item = document.getElementById("tips-" + index);
-					if(item.classList.contains("mui-hidden")) {
-						item.classList.remove("mui-hidden");
-						item.classList.add("guide-show");
-					}
-				}
-			});
+        //获取“分享给朋友”按钮点击状态及自定义分享内容接口
+        wx.onMenuShareAppMessage(shareParam);
 
-			var u = navigator.userAgent;
-			var ua = navigator.userAgent.toLowerCase();
-			var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
-			var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
-			var isWeiXin = ua.toLowerCase().match(/MicroMessenger/i) == "micromessenger";
-			var download = document.getElementById('download');
-			var ts = document.getElementById('ts');
-			ts.style.display = "none"
-			download.onclick = function() {
-				if(!isWeiXin) {
-					if(isIOS) {
-						mui.alert("IOS版本暂时没有上线，敬请期待！");
-					} else if(isAndroid) {
-						window.open("http://www.jxchaguan.com/Download/jxdaer.apk", "_self")
-					} else {
-						mui.alert("抱歉！此游戏暂时只支持IOS和Android系统")
-					}
-				} else {
-					ts.style.display = ts.style.display === "none" ? "block" : "none";
-				}
-			}
-		</script>
-	</body>
+        //获取“分享到QQ”按钮点击状态及自定义分享内容接口
+        wx.onMenuShareQQ(shareParam);
+
+        //获取“分享到腾讯微博”按钮点击状态及自定义分享内容接口
+        wx.onMenuShareWeibo(shareParam);
+
+
+        //获取“分享到QQ空间”按钮点击状态及自定义分享内容接口
+        wx.onMenuShareQZone(shareParam);
+
+    })
+
+    //图片切换时，触发动画
+    document.querySelector('.mui-slider').addEventListener('slide', function(event) {
+        //注意slideNumber是从0开始的；
+        var index = event.detail.slideNumber + 1;
+        if (index == 2 || index == 3) {
+            var item = document.getElementById("tips-" + index);
+            if (item.classList.contains("mui-hidden")) {
+                item.classList.remove("mui-hidden");
+                item.classList.add("guide-show");
+            }
+        }
+    });
+
+    var u = navigator.userAgent;
+    var ua = navigator.userAgent.toLowerCase();
+    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+    var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+    var isWeiXin = ua.toLowerCase().match(/MicroMessenger/i) == "micromessenger";
+    var download = document.getElementById('download');
+    var ts = document.getElementById('ts');
+    ts.style.display = "none"
+    download.onclick = function() {
+        if (!isWeiXin) {
+            if (isIOS) {
+                mui.alert("IOS版本暂时没有上线，敬请期待！");
+            } else if (isAndroid) {
+                window.open("http://www.jxchaguan.com/Download/jxdaer.apk", "_self")
+            } else {
+                mui.alert("抱歉！此游戏暂时只支持IOS和Android系统")
+            }
+        } else {
+            ts.style.display = ts.style.display === "none" ? "block" : "none";
+        }
+    }
+    </script>
+</body>
 
 </html>
